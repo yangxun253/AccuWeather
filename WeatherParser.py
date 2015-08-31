@@ -5,8 +5,6 @@ from bs4 import BeautifulSoup
 import numpy
 import unicodecsv
 
-
-
 rawlinks = [
             'http://www.accuweather.com/en/bg/sofia/51097/july-weather/51097',
             'http://www.accuweather.com/en/br/sao-paulo/45881/july-weather/45881',
