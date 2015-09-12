@@ -14,7 +14,7 @@ rawlinks = [
             'http://www.accuweather.com/en/et/addis-ababa/126831/july-weather/126831',
             'http://www.accuweather.com/en/eg/cairo/127164/july-weather/127164',
             'http://www.accuweather.com/en/gh/accra/178551/july-weather/178551',
-            'http://www.accuweather.com/en/il/tel-aviv/215854/july-weather/215854',
+            'http://www.accuweather.com/en/il/haifa/213181/august-weather/213181',
             'http://www.accuweather.com/en/in/chennai/206671/july-weather/206671',
             'http://www.accuweather.com/en/np/kathmandu/241809/july-weather/241809',
             'http://www.accuweather.com/en/pk/karachi/261158/july-weather/261158',
@@ -23,6 +23,7 @@ rawlinks = [
             'http://www.accuweather.com/en/ua/odessa/325343/july-weather/325343',
             'http://www.accuweather.com/en/us/raleigh-nc/27601/july-weather/329823'
             ]
+
 
 
 def getheader():
@@ -53,7 +54,10 @@ def getcityweather(link):
     url.close()
 
     titlestring = tree.title.string
-    city = titlestring[0:titlestring.find('July')-1]
+    stringcount = titlestring.find('July')
+    if stringcount < 0:
+        stringcount = titlestring.find('August')
+    city = titlestring[0:(stringcount-1)]
 
     actual = tree.find_all('div', class_='actual')
     history = tree.find_all('div', class_='avg')
